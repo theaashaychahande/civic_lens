@@ -2,6 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 import '../models/news_model.dart';
 import '../models/user_model.dart';
+import '../models/issue_model.dart';
+import '../models/announcement_model.dart';
+import '../models/voucher_model.dart';
 
 class CivicProvider extends ChangeNotifier {
   final _supabase = Supabase.instance.client;
@@ -30,8 +33,15 @@ class CivicProvider extends ChangeNotifier {
       // Fetch Stats
       final issuesCount = await _supabase
           .from('issues')
-          .select('id', const FetchOptions(count: CountOption.exact));
-      _totalIssues = issuesCount.count ?? 0;
+          .select('id');
+      _totalIssues = (issuesCount as List).length;
+      notifyListeners();
+    } catch (e) {
+      debugPrint('Error fetching home data: $e');
+    } finally {
+      _setLoading(false);
+    }
+  }
 
   List<Issue> _issues = [];
 

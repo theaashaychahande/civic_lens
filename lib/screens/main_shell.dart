@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'screens/home/home_screen.dart';
-import 'screens/issues/issues_screen.dart';
-import 'screens/report/report_screen.dart';
-import 'screens/community/community_screen.dart';
-import 'screens/profile/profile_screen.dart';
+import 'home/home_screen.dart';
+import 'issues/issues_screen.dart';
+import 'report/report_screen.dart';
+import 'community/community_screen.dart';
+import 'profile/profile_screen.dart';
 
 class MainShell extends StatefulWidget {
   const MainShell({super.key});

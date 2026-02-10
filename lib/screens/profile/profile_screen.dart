@@ -210,6 +210,8 @@ class _ProfileScreenState extends State<ProfileScreen> {
         );
       }
     }
+  }
+
   void _showSettings() {
     showModalBottomSheet(
       context: context,
