@@ -26,7 +26,6 @@ class _HomeScreenState extends State<HomeScreen> {
     final user = auth.currentUser;
 
     return Scaffold(
-      backgroundColor: Colors.grey[50],
       body: RefreshIndicator(
         onRefresh: () => civic.fetchHomeData(),
         child: CustomScrollView(
@@ -39,7 +38,10 @@ class _HomeScreenState extends State<HomeScreen> {
               flexibleSpace: FlexibleSpaceBar(
                 title: Text(
                   'Hello, ${user?.name ?? 'Citizen'}!',
-                  style: const TextStyle(color: Colors.white, fontSize: 16),
+                  style: Theme.of(context).textTheme.titleLarge?.copyWith(
+                        color: Colors.white,
+                        fontWeight: FontWeight.bold,
+                      ),
                 ),
                 background: Container(color: const Color(0xFF1F3B57)),
               ),
@@ -93,7 +95,7 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget _buildStatCard(String label, String value, IconData icon, Color color) {
     return Container(
       decoration: BoxDecoration(
-        color: Colors.white,
+        color: Theme.of(context).cardColor,
         borderRadius: BorderRadius.circular(12),
         boxShadow: [
           BoxShadow(
@@ -110,11 +112,15 @@ class _HomeScreenState extends State<HomeScreen> {
           const SizedBox(height: 8),
           Text(
             value,
-            style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
+            style: Theme.of(context).textTheme.titleLarge?.copyWith(
+                  fontWeight: FontWeight.bold,
+                ),
           ),
           Text(
             label,
-            style: TextStyle(color: Colors.grey[600], fontSize: 12),
+            style: Theme.of(context).textTheme.bodySmall?.copyWith(
+                  color: Theme.of(context).textTheme.bodySmall?.color?.withOpacity(0.7),
+                ),
           ),
         ],
       ),
@@ -127,7 +133,9 @@ class _HomeScreenState extends State<HomeScreen> {
       children: [
         Text(
           title,
-          style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+          style: Theme.of(context).textTheme.titleMedium?.copyWith(
+                fontWeight: FontWeight.bold,
+              ),
         ),
         TextButton(
           onPressed: onSeeAll,
@@ -145,7 +153,7 @@ class _HomeScreenState extends State<HomeScreen> {
       return Container(
         padding: const EdgeInsets.all(16),
         decoration: BoxDecoration(
-          color: Colors.white,
+          color: Theme.of(context).cardColor,
           borderRadius: BorderRadius.circular(12),
         ),
         child: const Center(child: Text('No news available right now.')),

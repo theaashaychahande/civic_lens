@@ -34,7 +34,6 @@ class _LoginScreenState extends State<LoginScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.grey[50],
       body: Center(
         child: SingleChildScrollView(
           padding: const EdgeInsets.all(32.0),
@@ -49,7 +48,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   'Civic Lens',
                   style: Theme.of(context).textTheme.headlineMedium?.copyWith(
                         fontWeight: FontWeight.bold,
-                        color: const Color(0xFF1F3B57),
+                        color: Theme.of(context).colorScheme.primary,
                       ),
                 ),
                 Text(

@@ -14,7 +14,9 @@ class AppTheme {
       primary: primaryNavy,
       secondary: accentGreen,
       surface: Colors.white,
+      onSurface: primaryNavy,
     ),
+    scaffoldBackgroundColor: Colors.grey[50],
     textTheme: GoogleFonts.interTextTheme(),
     appBarTheme: const AppBarTheme(
       centerTitle: true,
@@ -28,12 +30,19 @@ class AppTheme {
     useMaterial3: true,
     colorScheme: const ColorScheme.dark(
       primary: primaryNavy,
+      onPrimary: Colors.white,
       secondary: accentGreen,
+      onSecondary: Colors.white,
       surface: cardDark,
+      onSurface: Colors.white,
       background: backgroundDark,
+      onBackground: Colors.white70,
     ),
     scaffoldBackgroundColor: backgroundDark,
-    textTheme: GoogleFonts.interTextTheme(ThemeData.dark().textTheme),
+    textTheme: GoogleFonts.interTextTheme(ThemeData.dark().textTheme).copyWith(
+      bodyLarge: const TextStyle(color: Colors.white),
+      bodyMedium: const TextStyle(color: Colors.white70),
+    ),
     appBarTheme: const AppBarTheme(
       centerTitle: true,
       elevation: 0,
